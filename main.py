@@ -99,11 +99,16 @@ def main():
     try:
         print(f'Парсим данные с avito.ru...')
         cars_data = parse_avito_cars()
-        save_to_csv(cars_data)
+        if cars_data:
+            save_to_csv(cars_data)
+        else:
+            print()
+            print('Информации о товарах не найдено')
 
     except Exception as e:
         print(f'Основная ошибка: {e}')
 
 
 if __name__ == '__main__':
+
     main()
